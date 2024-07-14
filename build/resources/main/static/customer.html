@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Chat</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chat { width: 500px; height: 400px; border: 1px solid #ccc; overflow-y: scroll; background-color: #b0e572 }
+        #message { width: 500px; }
+    </style>
+</head>
+<body>
+<h1>Hello Customer</h1>
+<div id="chat"></div>
+<input type="text" id="message"  placeholder="Type a message...">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+    const sessionId = 'myGravelBike';
+    const userId = 'gravelEnthusiast';
+    const role = 'customer';
+    const chat = document.getElementById('chat');
+    const messageInput = document.getElementById('message');
+    const ws = new WebSocket(`ws://localhost:8080/chat/${sessionId}/${userId}/${role}`);
+
+    ws.onmessage = function(event) {
+        const message = document.createElement('div');
+        message.textContent = event.data;
+        chat.appendChild(message);
+    };
+
+    function sendMessage() {
+        const message = messageInput.value;
+        ws.send(message);
+        messageInput.value = '';
+    }
+
+    messageInput.addEventListener("keypress", function(event) {
+       if (event.key === "Enter") {
+           sendMessage()
+        }
+    });
+</script>
+</body>
+</html>

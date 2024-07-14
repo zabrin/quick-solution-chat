@@ -1,0 +1,22 @@
+¦2024-07-14 18:34:58.576 [Test worker @coroutine#1] TRACE i.ktor.client.plugins.HttpPlainText - Adding Accept-Charset=UTF-8 to http:///chat/myGravelBike/jobRad/jobRad
+¤2024-07-14 18:34:58.618 [DefaultDispatcher-worker-1 @call-context#2] INFO  ktor.test - No ktor.deployment.watch patterns specified, automatic reload is not active.
+}2024-07-14 18:34:58.787 [DefaultDispatcher-worker-1 @call-context#2] INFO  ktor.test - Application started in 0.173 seconds.
+v2024-07-14 18:34:58.788 [DefaultDispatcher-worker-3 @coroutine#4] INFO  ktor.test - Responding at http://localhost:80
+x2024-07-14 18:34:58.788 [DefaultDispatcher-worker-3 @coroutine#4] INFO  ktor.test - Responding at https://localhost:443
+2024-07-14 18:34:58.809 [DefaultDispatcher-worker-1 @request#2] TRACE io.ktor.routing.Routing - Trace for [chat, myGravelBike, jobRad, jobRad]
+/, segment:0 -> SUCCESS @ /
+>  /json, segment:0 -> FAILURE "Selector didn't match" @ /json
+B  /static, segment:0 -> FAILURE "Selector didn't match" @ /static
+&  /chat, segment:1 -> SUCCESS @ /chat
+g    /chat/{sessionId}, segment:2 -> SUCCESS; Parameters [sessionId=[myGravelBike]] @ /chat/{sessionId}
+r      /chat/{sessionId}/{userId}, segment:3 -> SUCCESS; Parameters [userId=[jobRad]] @ /chat/{sessionId}/{userId}
+€        /chat/{sessionId}/{userId}/{role}, segment:4 -> SUCCESS; Parameters [role=[jobRad]] @ /chat/{sessionId}/{userId}/{role}
+€          /chat/{sessionId}/{userId}/{role}/(method:GET), segment:4 -> SUCCESS @ /chat/{sessionId}/{userId}/{role}/(method:GET)
+Ö            /chat/{sessionId}/{userId}/{role}/(method:GET)/(header:Connection = Upgrade), segment:4 -> FAILURE "Selector didn't match" @ /chat/{sessionId}/{userId}/{role}/(method:GET)/(header:Connection = Upgrade)
+Matched routes:
+  No results
+Route resolve result:
+*  FAILURE "No matched subtrees found" @ /
+¿2024-07-14 18:34:58.817 [DefaultDispatcher-worker-1 @request#2] TRACE i.k.s.p.c.ContentNegotiation - Skipping response body transformation from HttpStatusCode to OutgoingContent for the GET /chat/myGravelBike/jobRad/jobRad request because the HttpStatusCode type is ignored. See [ContentNegotiationConfig::ignoreType].
+±2024-07-14 18:34:58.825 [Test worker @coroutine#1] TRACE i.k.client.plugins.HttpCallValidator - Validating response for request http://localhost/chat/myGravelBike/jobRad/jobRad
+·2024-07-14 18:34:58.825 [Test worker @coroutine#1] TRACE i.k.c.p.DefaultResponseValidation - Skipping default response validation for http://localhost/chat/myGravelBike/jobRad/jobRad
